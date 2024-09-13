@@ -1,7 +1,7 @@
 # SPRITEVisu Directory Generation
 
 **SPRITEVisu** is a tool for generating heatmap visualizations of genomic contacts from SPRITE (Split-Pool Recognition of Interactions by Tag Extension) data.
-It require a specific directory format which **SPRITEVisu Directory Generation** is designed to process cluster files, handle intra- and interchromosomal contacts, 
+It requires a specific directory format which **SPRITEVisu Directory Generation** is designed to process cluster files, handle intra- and interchromosomal contacts, 
 and create output files compatible with genomic visualization tools (SPRITEVisu).
 
 Portions of this code are adapted from the Guttman Lab's SPRITE pipeline, available at: [Guttman Lab SPRITE Pipeline](https://github.com/GuttmanLab/sprite-pipeline/blob/master/scripts/python/contact.py).
@@ -18,9 +18,14 @@ Portions of this code are adapted from the Guttman Lab's SPRITE pipeline, availa
 ### Prerequisites
 
 - Python 3.7 or higher
-- Required Python libraries: `numpy`, `collections`, `json`, `os`
+- Required Python libraries:
+  - argparse (included in Python standard library; no need to install separately)
+  - json (included in Python standard library; no need to install separately)
+  - os (included in Python standard library; no need to install separately)
+  - collections (included in Python standard library; no need to install separately)
+  - itertools (included in Python standard library; no need to install separately)
 
-To install the required libraries, run:
+No additional libraries need to be installed beyond the standard library modules.
 
 ### Clone the Repository
 To clone the repository, run:
@@ -39,7 +44,7 @@ python main_sv.py -c <clusters_file> -s <genomic_size_file> -o <output_directory
 
 **Arguments**
 - `-c`, `--clusters`: Path to the input clusters file (required).
-- `-s`, `--genomic_size`: Path to the JSON file containing genomic size information, e.g., chromsize_hg38.json (Sample can be found at ).
+- `-s`, `--genomic_size`: Path to the JSON file containing genomic size information, e.g., chromsize_hg38.json (Sample can be found at [chromsize_hg38.json ](./chromsize_hg38.json) and [chromsize_hg19.json](./chromsize_hg19.json) ) If you are can also create your own JSON file and use this as references.
 - `-o`, `--heatmap_spritevisu_output`: Output directory for the generated SpriteVisu heatmap file (default: spritevisu).
 - `-m`, `--max_cluster_size`: Maximum number of reads allowed in a read-cluster. Clusters with more reads than this value will be skipped (default: 1000).
 - `-n`, `--min_cluster_size`: Minimum number of reads required in a read-cluster. Clusters with fewer reads than this value will be skipped (default: 2).
