@@ -102,9 +102,11 @@ class SpriteVisu:
 
                 for read in reads:
                     # For the current SPRITE pipeline
+                    print(read)
                     if not self._start_only:
-                        _, coord = read.split('_', 1)
-                        chrom, start, end = coord.replace('-', ':').split(':')
+                        _, coord = read.rsplit('_', 1)
+                        chrom, position = coord.split(':')
+                        start, end = position.split('-')
                         bins[chrom].add(int(start))
                     else:
                         # Legacy format handling
