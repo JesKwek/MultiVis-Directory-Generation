@@ -1,8 +1,10 @@
 # MultiVis Directory Generation
 
+[Official Website](https://jeskwek.com/multivis/docs/introduction)
+
 **MultiVis** is a tool for generating heatmap visualizations of genomic contacts from SPRITE (Split-Pool Recognition of Interactions by Tag Extension) data.
 It requires a specific directory format which **MultiVis Directory Generation** is designed to process cluster files, handle intra- and interchromosomal contacts, 
-and create output files compatible with genomic visualization tools (MultiVis).
+and create output files compatible with genomic visualization tools (MultiVis). Full documentation can be found on [MultiVis Website](https://jeskwek.com/multivis/docs/introduction).
 
 Portions of this code are adapted from the Guttman Lab's SPRITE pipeline, available at: [Guttman Lab SPRITE Pipeline](https://github.com/GuttmanLab/sprite-pipeline/blob/master/scripts/python/contact.py).
 
