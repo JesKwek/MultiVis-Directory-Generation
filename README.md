@@ -13,6 +13,7 @@ Portions of this code are adapted from the Guttman Lab's SPRITE pipeline, availa
 - [Installation](#installation)
 - [Usage](#usage)
 - [Example](#example)
+- [Conversion](#conversion-to-cluster)
 - [Credits](#credits)
 
 ## Installation
@@ -38,10 +39,10 @@ cd MultiVis-Directory-Generation
 ```
 
 ## Usage
-To run MultiVis, use the main_sv.py script:
+To run MultiVis, use the main_mv.py script:
 
 ```
-python main_sv.py -c <clusters_file> -s <genomic_size_file> -o <output_directory> -m <max_cluster_size> -n <min_cluster_size> [-t]
+python main_mv.py -c <clusters_file> -s <genomic_size_file> -o <output_directory> -m <max_cluster_size> -n <min_cluster_size> [-t]
 ```
 
 **Arguments**
@@ -54,9 +55,12 @@ python main_sv.py -c <clusters_file> -s <genomic_size_file> -o <output_directory
 
 ## Example
 ```
-python main_sv.py -c ./data/human.combined.mapq-ge10.clusters -s chromsize_hg19.json  -o MultiVis_human.combined.mapq-ge10 -m 100 -n 2 -t
+python main_mv.py -c ./data/human.combined.mapq-ge10.clusters -s chromsize_hg19.json  -o MultiVis_human.combined.mapq-ge10 -m 100 -n 2 -t
 ```
 This example uses human.combined.mapq-ge10.clusters produced by Guttman Lab and can be download at [GSE114242_human_combined_clusters.tar.gz](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114242). It uses the genomic size file [chromsize_hg19.json](./chromsize_hg19.json), and outputs to the output_directory. In this case, `./MultiVis_human.combined.mapq-ge10 `. It also sets the maximum cluster size to 100, the minimum cluster size to 2, and uses only the start positions because this cluster file only contains the start position. For newer SPRITE data, you should set this -t as it will have both start and end position.
+
+## Conversion to Cluster
+MultiVis requires .cluster as an input format. If you dataset is not in cluster, you should format it, you can refer to [Data to SPRITE Cluster Format Converter](https://github.com/JesKwek/MultiVis-Directory-Generation/tree/main/conversion-example)
 
 ## Credits
 This tool was developed by Jes Kwek Hui Min. Portions of the code were derived or adapted from the Guttman Lab's SPRITE pipeline.
